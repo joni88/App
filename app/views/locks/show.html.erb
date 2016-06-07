@@ -1,0 +1,19 @@
+<% if @lock %>
+
+  <h1><%= @lock.name %></h1>
+  <p><strong>Website:</strong><%= @lock.website %></p>
+  <p><strong>Username:</strong><%= @lock.username %></p>
+  <p><strong>Password:</strong><%= @lock.password %></p>
+  <p><strong>Additional Info:</strong><%= @additional_info %></p>
+  <p><strong>Email linked with this account:</strong><%= @lock.email_linked_with_this_account %></p>
+  <p><strong> Kind:</strong><%= @lock.kind.try(:name) %></p>
+  
+
+  <%= link_to " Back to account list", locks_path %>
+  <%= link_to "Sign out", destroy_user_session_path, method: :delete %>
+
+<% else %>
+
+  <p> restaurant not  found </p>
+
+<%end%>

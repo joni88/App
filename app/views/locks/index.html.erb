@@ -1,0 +1,36 @@
+<div class="row">
+  <div class="col-md-12">
+    <h1>Accounts</h1>
+
+    <%= link_to "Create New account", new_lock_path %>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-md-8">
+    <table class="table table-hover">
+      <tr>
+        <th>Name</th>
+        <th>Website</th>
+        <th>Username</th>
+        <th>Password</th>
+        <th>Kind</th>
+        <th></th>  
+      </tr>
+      <tbody>
+      <% @lock.each do |lock| %>
+        <tr>
+          <td><%= link_to lock.name, lock_path(lock) %></td>
+          <td><%= lock.website %></td>
+          <td><%= lock.username %></td>
+          <td><%= lock.password %></td>
+          <td><%= lock.kind.try(:name) %></td>
+          <td><%= link_to "edit", edit_lock_path(lock) %> 
+          <%= link_to "delete", lock_path(lock), method: :delete, data: {confirm: "Are you sure you want to delete this account?"} %>
+          </td><br>
+        </tr>    
+      <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>

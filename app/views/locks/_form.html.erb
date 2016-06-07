@@ -1,0 +1,59 @@
+<%= form_for @lock, html: { multipart: true} do |f| %>
+
+  <% if @lock.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@lock.errors.count, "error") %> prohibited this account from being saved:</h2>
+
+      <ul>
+      <% @lock.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div style="margin:0 auto; 
+              width: 50%; 
+              background-color: grey; 
+              border: 2px solid black;
+              text-align: center;" >
+  <div class="input-group">
+    <%= f.label :name %><br>
+    <%= f.text_field :name, class: 'form-control',  placeholder:'Account Name' %>
+  </div><br>
+
+  <div class="input-group">
+    <%= f.label :website %><br>
+    <%= f.text_field :website, class: 'form-control', placeholder: 'https://example.com/users/'%>
+  </div><br>
+
+
+  <div class="input-group">
+    <%= f.label :username %><br>
+    <%= f.text_field :username, class: 'form-control',  placeholder:'Username' %>
+  </div><br>
+
+   <div class="input-group">
+    <%= f.label :password %><br>
+    <%= f.text_field :password, class: 'form-control',  placeholder:'Password'%>
+  </div><br>
+
+  <div class="input-group">
+    <%= f.label :additional_info %><br>
+    <%= f.text_area :additional_info, class: 'form-control',  placeholder:'Add info' %>
+  </div><br>
+
+  <div class="input-group">
+    <%= f.label :email_linked_with_this_account %><br>
+    <%= f.text_field :email_linked_with_this_account, class: 'form-control',  placeholder:'Add email' %>
+  </div><br>
+
+  <p>
+    <%= f.label :assign_kind %><br>
+    <%= collection_select(:Lock, :Kind_id, Kind.all, :id, :name) %>
+  </p><br>
+
+
+  <%= f.submit %>
+<% end %>
+</div>

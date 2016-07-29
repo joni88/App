@@ -1,8 +1,15 @@
 <div style="margin: 0 auto;
             width: 80%;
-            background-image: url(../images/12.jpg);
-            background-repeat: no-repeat;
-            background-size: cover;">
+            height: 550px;">
+            <div style="margin: 0 auto;
+                        margin-top: 150px;
+                        border: 3px violet;
+                        border-radius: 30px;
+                        padding: 30px;
+                        width: 50%;
+                        height:300px;
+                        background:rgba(90,90,90,0.3);
+                        color: black;">
 <h2>Forgot your password?</h2>
 
 <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
@@ -11,12 +18,13 @@
   <div class="field">
     <%= f.label :email %><br />
     <%= f.email_field :email, autofocus: true %>
-  </div>
+  </div><br><br>
 
   <div class="actions">
     <%= f.submit "Send me reset password instructions" %>
   </div>
 <% end %>
-
+<br>
 <%= render "devise/shared/links" %>
+</div>
 </div>

@@ -24,7 +24,7 @@ gem 'jbuilder', '~> 2.0'
 gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'rails_12factor' , group: :production
 gem 'devise',  '~> 4.1.1'
-gem 'sqlite3', '~>1.3.11'
+
 gem 'bootstrap-sass', '~> 3.3.6'
 gem 'paperclip', ' ~>4.2'
 # Use ActiveModel has_secure_password
@@ -40,7 +40,7 @@ group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'pry'
   gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
-
+  gem 'sqlite3', '~> 1.3.11'
  
   
 end
@@ -49,6 +49,7 @@ group :development do
   # Access an IRB console on exception pages or by using <%= console %> in views
   gem 'web-console', '~> 2.0'
   gem 'rails_layout'
+
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem

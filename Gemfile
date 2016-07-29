@@ -24,7 +24,7 @@ gem 'jbuilder', '~> 2.0'
 gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'rails_12factor' , group: :production
 gem 'devise',  '~> 4.1.1'
-gem 'sqlite3'
+gem 'sqlite3', '~>1.3.11'
 gem 'bootstrap-sass', '~> 3.3.6'
 gem 'paperclip', ' ~>4.2'
 # Use ActiveModel has_secure_password

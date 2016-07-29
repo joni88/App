@@ -1,19 +1,31 @@
-<% if @lock %>
+<%= stylesheet_link_tag "style.css" %>
+<div style="margin: 0 auto;
+            width: 80%;
+            height: 100%;
+            border: 3px violet;
+            border-radius: 30px;
+            padding: 30px 0px 30px 100px;
+            font-size: 30px; 
+            background:rgba(90,90,90,0.3);
+            color: black;">
 
-  <h1><%= @lock.name %></h1>
-  <p><strong>Website:</strong><%= @lock.website %></p>
-  <p><strong>Username:</strong><%= @lock.username %></p>
-  <p><strong>Password:</strong><%= @lock.password %></p>
-  <p><strong>Additional Info:</strong><%= @additional_info %></p>
-  <p><strong>Email linked with this account:</strong><%= @lock.email_linked_with_this_account %></p>
-  <p><strong> Kind:</strong><%= @lock.kind.try(:name) %></p>
+  <% if @lock %>
   
-
+  <h1 class="show"><strong><%= @lock.name %></strong></h1>
+  <p><strong>Website:</strong>&nbsp;&nbsp;&nbsp;<%= @lock.website %></p>
+  <p><strong>Username:</strong>&nbsp;&nbsp;<%= @lock.username %></p>
+  <p><strong>Password:</strong>&nbsp;&nbsp;<%= @lock.password %></p>
+  <p><strong>Additional Info:</strong>&nbsp;&nbsp;<%=               @lock.additional_info %></p>
+  <p><strong>Email linked with this account:</strong>&nbsp;&nbsp;<%= @lock.email_linked_with_this_account %></p>
+  <p><strong> Kind:</strong>&nbsp;&nbsp;<%= @lock.kind.try(:name) %></p>
+  
+  <br>
+  <br>
   <%= link_to " Back to account list", locks_path %>
-  <%= link_to "Sign out", destroy_user_session_path, method: :delete %>
-
+ 
 <% else %>
 
-  <p> restaurant not  found </p>
+  <p> Account  not  found </p>
 
 <%end%>
+</div>

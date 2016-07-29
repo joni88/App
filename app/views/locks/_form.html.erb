@@ -1,4 +1,5 @@
-<%= form_for @lock, html: { multipart: true} do |f| %>
+
+  <%= form_for @lock, html: { multipart: true} do |f| %>
 
   <% if @lock.errors.any? %>
     <div id="error_explanation">
@@ -12,11 +13,8 @@
     </div>
   <% end %>
 
-  <div style="margin:0 auto; 
-              width: 50%; 
-              background-color: grey; 
-              border: 2px solid black;
-              text-align: center;" >
+  
+
   <div class="input-group">
     <%= f.label :name %><br>
     <%= f.text_field :name, class: 'form-control',  placeholder:'Account Name' %>
@@ -49,11 +47,11 @@
   </div><br>
 
   <p>
-    <%= f.label :assign_kind %><br>
-    <%= collection_select(:Lock, :Kind_id, Kind.all, :id, :name) %>
+    <%= f.label :kind %><br>
+    <%= collection_select(:lock, :kind_id, Kind.all, :id, :name, include_blank: true) %>
   </p><br>
 
 
   <%= f.submit %>
+ 
 <% end %>
-</div>

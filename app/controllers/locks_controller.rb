@@ -1,7 +1,12 @@
-class LocksController < ActionController::Base
+class LocksController < ApplicationController
 	before_action :authenticate_user!
 	def index
 		@lock = Lock.all 
+		if params[:search]
+			@lock = Lock.search(params[:search]).order("created_at DESC")
+		else
+			@lock = Lock.all.order('created_at DESC')
+		end
 	end
 
 	def show
@@ -47,6 +52,6 @@ class LocksController < ActionController::Base
 	private
 
 	def lock_params
-		params.require(:lock).permit(:name, :website, :username, :password, :additional_info, :email_linked_with_this_account, :kind_id)
+		params.require(:lock).permit(:name, :website, :username, :password, :additional_info, :email_linked_with_this_account, :kind_id, :search)
     end
 end

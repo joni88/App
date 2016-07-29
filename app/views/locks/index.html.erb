@@ -1,31 +1,65 @@
-<div class="row">
-  <div class="col-md-12">
-    <h1>Accounts</h1>
+<div style="margin: 0 auto;
+            width: 80%;
+            height: 300%;
+            
+            padding: 10px;">
+   <div class="row">
+      <div style="width: 960px;
+                  height: 500px;             
+                  background: rgba(255,255,255,0.3);
+                  border-radius: 40px;
+                  border-color: 2px violet;">
+         <h1 style="text-align: center;padding-top: 50px;">Accounts  List</h1>
+          <div style=" width:400px;
+                       height: 250px;
+                       margin-top: 50px; 
+                       margin-left: 20px; 
+                       color: white;
+                       border-radius: 40px;
+                       border-color: 2px violet;
+                       background: rgba(255,255,255,0.5);
+                       padding: 20px;
+                       display: inline-block;">
+              <button class="btn btn-lg btn-danger" style="margin-left: 50px;" ><%= link_to  "Create New account", new_lock_path %></button><br><br>
+  
+              <p class="p"> You  can  search  your  account  by  name </p>
+              <%= form_tag(locks_path, :method => "get", id: "search-form") do %>
+                <%= text_field_tag :search, params[:search], placeholder: "Search name" , class: 'search1' %>
+                <%= submit_tag "Search" , class: 'search' %>
+             <% end %>
+         </div>
+         <div style="width: 400px;
+                     height: 250px;
+                     color: black;
+                     font-family: 'calibri';
+                     margin-top: 50px;
+                     margin-left: 100px;
+                     display: inline-block;
+                     font-size: 30px;">
+              <p> This  is your  accounts  list  with  their  sensitive  information!</p>
+              <P> Please  don't  forget to  <strong>Sign Out</strong>  after  you  are  done  with  the  website.</P> </div>
+        </div>
+      </div>
 
-    <%= link_to "Create New account", new_lock_path %>
-  </div>
-</div>
-
-<div class="row">
-  <div class="col-md-8">
-    <table class="table table-hover">
+      <div style="width: 95%;padding: 10px;">
+    <table>
       <tr>
-        <th>Name</th>
-        <th>Website</th>
-        <th>Username</th>
-        <th>Password</th>
-        <th>Kind</th>
-        <th></th>  
+        <th class="table2">Name</th>
+        <th class="table2">Website</th>
+        <th class="table2">Username</th>
+        <th class="table2">Password</th>
+        <th class="table2">Kind</th>
+        <th class="table2"></th>  
       </tr>
       <tbody>
       <% @lock.each do |lock| %>
         <tr>
-          <td><%= link_to lock.name, lock_path(lock) %></td>
-          <td><%= lock.website %></td>
-          <td><%= lock.username %></td>
-          <td><%= lock.password %></td>
-          <td><%= lock.kind.try(:name) %></td>
-          <td><%= link_to "edit", edit_lock_path(lock) %> 
+          <td class="table1"><%= link_to lock.name, lock_path(lock) %></td>
+          <td class="table1"><%= lock.website %></td>
+          <td class="table1"><%= lock.username %></td>
+          <td class="table1"><%= lock.password %></td>
+          <td class="table1"><%= lock.kind.try(:name) %></td>
+          <td class="table1"><%= link_to "edit", edit_lock_path(lock) %> | 
           <%= link_to "delete", lock_path(lock), method: :delete, data: {confirm: "Are you sure you want to delete this account?"} %>
           </td><br>
         </tr>    
@@ -33,4 +67,6 @@
       </tbody>
     </table>
   </div>
+
 </div>
+
